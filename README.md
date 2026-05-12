@@ -180,7 +180,7 @@ text-align:center;
 
 .company-title{
 
-font-size:34px;
+font-size:38px;
 
 font-weight:900;
 
@@ -324,37 +324,39 @@ display:flex;
 
 flex-direction:column;
 
-gap:12px;
+gap:14px;
 
-padding:12px;
+padding:14px;
 
 overflow:hidden;
 
 }
 
-/* ================= GRID ================= */
+/* ================= TOP GRID ================= */
 
 .top-grid{
 
 display:grid;
 
 grid-template-columns:
-220px 220px 1fr;
+260px 260px 1fr;
 
-gap:12px;
+gap:14px;
 
 flex-shrink:0;
 
 }
+
+/* ================= LOWER GRID ================= */
 
 .lower-grid{
 
 display:grid;
 
 grid-template-columns:
-250px 1fr 260px;
+320px 1fr 320px;
 
-gap:12px;
+gap:14px;
 
 height:100%;
 
@@ -395,7 +397,7 @@ box-shadow:
 
 .card-title{
 
-font-size:12px;
+font-size:13px;
 
 font-weight:bold;
 
@@ -432,24 +434,6 @@ font-size:11px;
 
 outline:none;
 
-transition:.25s;
-
-border:
-1px solid transparent;
-
-}
-
-select:focus,
-input:focus{
-
-border:
-1px solid rgba(59,130,246,.45);
-
-box-shadow:
-0 0 18px rgba(59,130,246,.25);
-
-transform:scale(1.01);
-
 }
 
 /* ================= WEATHER ================= */
@@ -461,31 +445,28 @@ display:grid;
 grid-template-columns:
 repeat(4,1fr);
 
-gap:8px;
+gap:10px;
+
+align-items:center;
 
 text-align:center;
 
 height:100%;
 
-align-items:center;
-
 }
 
 .weather-temp{
-font-size:26px;
+font-size:30px;
 font-weight:800;
 color:#fde047;
 }
 
 .weather-icon{
 
-font-size:26px;
+font-size:30px;
 
 animation:
 weatherFloat 3s ease-in-out infinite;
-
-filter:
-drop-shadow(0 0 10px rgba(250,204,21,.4));
 
 }
 
@@ -518,12 +499,6 @@ linear-gradient(
 #020617
 );
 
-border:
-1px solid rgba(59,130,246,.18);
-
-box-shadow:
-0 0 35px rgba(37,99,235,.16);
-
 }
 
 #map{
@@ -532,9 +507,9 @@ width:100%;
 
 height:100%;
 
-min-height:78vh;
+min-height:84vh;
 
-border-radius:20px;
+border-radius:22px;
 
 overflow:hidden;
 
@@ -558,58 +533,10 @@ align-items:center;
 
 margin-bottom:10px;
 
-position:relative;
-
-overflow:hidden;
-
-transition:.3s;
-
-}
-
-.summary-box:hover{
-
-transform:translateY(-3px);
-
-box-shadow:
-0 0 20px rgba(59,130,246,.25);
-
-}
-
-.summary-box::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-120%;
-
-width:100%;
-height:100%;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.08),
-transparent
-);
-
-animation:
-shineMove 4s linear infinite;
-
-}
-
-@keyframes shineMove{
-
-100%{
-left:120%;
-}
-
 }
 
 .summary-value{
-font-size:24px;
+font-size:30px;
 font-weight:800;
 }
 
@@ -619,16 +546,7 @@ font-weight:800;
 
 flex:1;
 
-padding:8px;
-
-border-radius:18px;
-
-background:
-linear-gradient(
-180deg,
-rgba(15,23,42,.65),
-rgba(2,6,23,.85)
-);
+min-height:520px;
 
 }
 
@@ -662,7 +580,7 @@ white-space:pre-line;
 
 width:100%;
 
-padding:12px;
+padding:13px;
 
 border:none;
 
@@ -671,7 +589,11 @@ border-radius:14px;
 margin-top:12px;
 
 background:
-linear-gradient(135deg,#2563eb,#1d4ed8);
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
 
 color:white;
 
@@ -679,62 +601,14 @@ font-weight:bold;
 
 cursor:pointer;
 
-position:relative;
-
-overflow:hidden;
-
-transition:.3s;
-
-}
-
-.btn:hover{
-
-transform:translateY(-2px);
-
-box-shadow:
-0 0 20px rgba(37,99,235,.35);
-
-}
-
-.btn::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-120%;
-
-width:100%;
-height:100%;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.15),
-transparent
-);
-
-animation:
-btnShine 3s linear infinite;
-
-}
-
-@keyframes btnShine{
-
-100%{
-left:120%;
-}
-
 }
 
 /* ================= LIVE PIN ================= */
 
 .live-pin-wrapper{
 position:relative;
-width:38px;
-height:38px;
+width:42px;
+height:42px;
 transform:translate(-50%,-100%);
 z-index:9999;
 }
@@ -743,8 +617,8 @@ z-index:9999;
 
 position:absolute;
 
-width:38px;
-height:38px;
+width:42px;
+height:42px;
 
 border-radius:50%;
 
@@ -762,11 +636,11 @@ left:0;
 
 position:absolute;
 
-width:28px;
-height:28px;
+width:30px;
+height:30px;
 
-left:5px;
-top:5px;
+left:6px;
+top:6px;
 
 border-radius:
 50% 50% 50% 0;
@@ -776,8 +650,7 @@ rotate(-45deg);
 
 border:2px solid white;
 
-box-shadow:
-0 0 18px rgba(34,197,94,.7);
+background:#22c55e;
 
 }
 
@@ -785,7 +658,7 @@ box-shadow:
 
 position:absolute;
 
-top:-58px;
+top:-62px;
 left:50%;
 
 transform:translateX(-50%);
@@ -797,11 +670,11 @@ linear-gradient(
 #15803d
 );
 
-padding:8px 10px;
+padding:9px 12px;
 
-border-radius:12px;
+border-radius:14px;
 
-min-width:160px;
+min-width:170px;
 
 text-align:center;
 
@@ -810,15 +683,6 @@ font-size:10px;
 font-weight:bold;
 
 color:white;
-
-border:
-1px solid rgba(255,255,255,.15);
-
-box-shadow:
-0 8px 25px rgba(0,0,0,.35);
-
-animation:
-liveCardFloat 2.8s ease-in-out infinite;
 
 }
 
@@ -848,28 +712,6 @@ opacity:0;
 
 100%{
 opacity:0;
-}
-
-}
-
-@keyframes liveCardFloat{
-
-0%{
-transform:
-translateX(-50%)
-translateY(0px);
-}
-
-50%{
-transform:
-translateX(-50%)
-translateY(-4px);
-}
-
-100%{
-transform:
-translateX(-50%)
-translateY(0px);
 }
 
 }
@@ -931,26 +773,6 @@ font-size:10px;
 
 }
 
-/* ================= SCROLLBAR ================= */
-
-::-webkit-scrollbar{
-width:7px;
-height:7px;
-}
-
-::-webkit-scrollbar-thumb{
-
-background:
-linear-gradient(
-180deg,
-#2563eb,
-#06b6d4
-);
-
-border-radius:999px;
-
-}
-
 /* ================= MOBILE ================= */
 
 @media(max-width:1100px){
@@ -971,30 +793,8 @@ grid-template-columns:1fr;
 }
 
 #map{
-height:70vh;
-}
-
-.company-header{
-height:auto;
-flex-direction:column;
-padding-bottom:20px;
-}
-
-.header-time-box{
-position:relative;
-right:auto;
-top:auto;
-transform:none;
-margin-top:15px;
-}
-
-.company-title{
-font-size:24px;
-}
-
-.company-logo-box{
-width:70px;
-height:70px;
+height:75vh;
+min-height:75vh;
 }
 
 }
@@ -1115,7 +915,7 @@ id="dateFilter">
 
 <div class="lower-grid">
 
-<div style="display:flex;flex-direction:column;gap:12px;overflow:hidden;">
+<div style="display:flex;flex-direction:column;gap:14px;overflow:hidden;">
 
 <div class="card">
 
@@ -1184,7 +984,7 @@ Realtime GPS Map
 
 </div>
 
-<div style="display:flex;flex-direction:column;gap:12px;overflow:hidden;">
+<div style="display:flex;flex-direction:column;gap:14px;overflow:hidden;">
 
 <div class="card" style="flex:1;">
 
@@ -1222,8 +1022,6 @@ No warnings
 
 <script>
 
-/* FIREBASE */
-
 const firebaseConfig = {
 
 apiKey:"YOUR_API_KEY",
@@ -1237,8 +1035,6 @@ projectId:"YOUR_PROJECT_ID"
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
-
-/* TIME */
 
 function updatePHTime(){
 
@@ -1258,8 +1054,6 @@ setInterval(updatePHTime,1000);
 
 updatePHTime();
 
-/* MAP */
-
 const map =
 L.map('map').setView([15.4863,120.9674],10);
 
@@ -1269,8 +1063,6 @@ L.tileLayer(
 
 let markers =
 L.layerGroup().addTo(map);
-
-/* CHART */
 
 const ctx =
 document.getElementById('activityChart');
@@ -1291,9 +1083,7 @@ backgroundColor:[
 '#ef4444',
 '#8b5cf6',
 '#06b6d4'
-],
-borderWidth:3,
-borderColor:"#ffffff"
+]
 }]
 },
 
@@ -1304,32 +1094,15 @@ maintainAspectRatio:false
 
 });
 
-/* LOAD */
-
 function loadData(){
 
 markers.clearLayers();
 
 let historyText="";
-
 let purposeCount={};
 
 let timeIn=0;
 let timeOut=0;
-
-let employees=[];
-
-let employeeFilter =
-document.getElementById("employeeFilter").value;
-
-let dateFilter =
-document.getElementById("dateFilter").value;
-
-let coordEmployeeFilter =
-document.getElementById("coordEmployeeFilter").value;
-
-let coordDateFilter =
-document.getElementById("coordDateFilter").value;
 
 db.collection("attendance")
 .get()
@@ -1338,26 +1111,6 @@ db.collection("attendance")
 snapshot.forEach(doc=>{
 
 let d = doc.data();
-
-if(!employees.includes(d.name)){
-employees.push(d.name);
-}
-
-if(
-
-(employeeFilter &&
-d.name != employeeFilter)
-
-||
-
-(dateFilter &&
-d.date != dateFilter)
-
-){
-
-return;
-
-}
 
 if(d.type=="IN"){
 timeIn++;
@@ -1373,36 +1126,15 @@ purposeCount[d.purpose]=0;
 
 purposeCount[d.purpose]++;
 
-if(
-
-(!coordEmployeeFilter ||
-d.name == coordEmployeeFilter)
-
-&&
-
-(!coordDateFilter ||
-d.date == coordDateFilter)
-
-){
-
 historyText +=
 `${Number(d.lat).toFixed(6)}, ${Number(d.lon).toFixed(6)}\n`;
-
-}
 
 let isLive =
 d.type == "IN";
 
-let pinColor =
-isLive
-?
-"#22c55e"
-:
-"#ef4444";
-
 const customIcon = L.divIcon({
 
-html: isLive
+html:isLive
 
 ?
 
@@ -1422,11 +1154,7 @@ html: isLive
 
 </div>
 
-<div class="live-pin-core"
-style="
-background:${pinColor};
-">
-</div>
+<div class="live-pin-core"></div>
 
 </div>
 
@@ -1440,7 +1168,7 @@ background:${pinColor};
 
 <div class="pin-core"
 style="
-background:${pinColor};
+background:#ef4444;
 ">
 </div>
 
@@ -1449,10 +1177,8 @@ background:${pinColor};
 `,
 
 className:"",
-
-iconSize:[38,38],
-
-iconAnchor:[19,38]
+iconSize:[42,42],
+iconAnchor:[21,42]
 
 });
 
@@ -1492,63 +1218,9 @@ ${Number(d.lon).toFixed(6)}
 
 });
 
-/* FILTERS */
-
-const employeeSelect =
-document.getElementById("employeeFilter");
-
-const coordEmployeeSelect =
-document.getElementById("coordEmployeeFilter");
-
-let employeeValue =
-employeeSelect.value;
-
-let coordValue =
-coordEmployeeSelect.value;
-
-employeeSelect.innerHTML =
-`
-<option value="">
-All Employees
-</option>
-`;
-
-coordEmployeeSelect.innerHTML =
-`
-<option value="">
-All Employees
-</option>
-`;
-
-employees.forEach(emp=>{
-
-employeeSelect.innerHTML +=
-`
-<option value="${emp}">
-${emp}
-</option>
-`;
-
-coordEmployeeSelect.innerHTML +=
-`
-<option value="${emp}">
-${emp}
-</option>
-`;
-
-});
-
-employeeSelect.value =
-employeeValue;
-
-coordEmployeeSelect.value =
-coordValue;
-
-/* UPDATE */
-
 document.getElementById("history")
 .innerText =
-historyText || "No coordinates";
+historyText;
 
 document.getElementById("timeInCount")
 .innerText =
@@ -1570,20 +1242,6 @@ activityChart.update();
 
 }
 
-document.getElementById("employeeFilter")
-.onchange = loadData;
-
-document.getElementById("dateFilter")
-.onchange = loadData;
-
-document.getElementById("coordEmployeeFilter")
-.onchange = loadData;
-
-document.getElementById("coordDateFilter")
-.onchange = loadData;
-
-/* COPY */
-
 function copyCoords(){
 
 navigator.clipboard.writeText(
@@ -1593,8 +1251,6 @@ document.getElementById("history").innerText
 alert("COPIED");
 
 }
-
-/* AUTO */
 
 setInterval(loadData,5000);
 

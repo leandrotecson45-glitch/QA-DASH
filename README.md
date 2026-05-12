@@ -58,7 +58,7 @@ linear-gradient(
 #0f172a
 );
 
-padding:20px 30px;
+padding:20px 35px;
 
 display:flex;
 
@@ -117,8 +117,8 @@ z-index:2;
 
 .company-logo-box{
 
-width:88px;
-height:88px;
+width:90px;
+height:90px;
 
 border-radius:24px;
 
@@ -139,25 +139,6 @@ justify-content:center;
 
 box-shadow:
 0 0 35px rgba(37,99,235,.45);
-
-animation:
-logoPulse 4s ease-in-out infinite;
-
-}
-
-@keyframes logoPulse{
-
-0%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.04);
-}
-
-100%{
-transform:scale(1);
-}
 
 }
 
@@ -180,7 +161,7 @@ text-align:center;
 
 .company-title{
 
-font-size:38px;
+font-size:42px;
 
 font-weight:900;
 
@@ -320,9 +301,10 @@ color:#38bdf8;
 
 height:calc(100vh - 145px);
 
-display:flex;
+display:grid;
 
-flex-direction:column;
+grid-template-rows:
+90px 1fr;
 
 gap:14px;
 
@@ -332,33 +314,49 @@ overflow:hidden;
 
 }
 
-/* ================= TOP GRID ================= */
+/* ================= TOP ================= */
 
 .top-grid{
 
 display:grid;
 
 grid-template-columns:
-260px 260px 1fr;
+280px 280px 1fr;
 
 gap:14px;
 
-flex-shrink:0;
+height:90px;
 
 }
 
-/* ================= LOWER GRID ================= */
+/* ================= LOWER ================= */
 
 .lower-grid{
 
 display:grid;
 
 grid-template-columns:
-320px 1fr 320px;
+340px 1fr 340px;
 
 gap:14px;
 
 height:100%;
+
+overflow:hidden;
+
+}
+
+/* ================= SIDES ================= */
+
+.lower-grid > div{
+
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+gap:14px;
 
 overflow:hidden;
 
@@ -397,7 +395,7 @@ box-shadow:
 
 .card-title{
 
-font-size:13px;
+font-size:14px;
 
 font-weight:bold;
 
@@ -418,7 +416,7 @@ input{
 
 width:100%;
 
-height:42px;
+height:46px;
 
 padding:10px;
 
@@ -430,7 +428,7 @@ background:#0f172a;
 
 color:white;
 
-font-size:11px;
+font-size:12px;
 
 outline:none;
 
@@ -445,52 +443,35 @@ display:grid;
 grid-template-columns:
 repeat(4,1fr);
 
-gap:10px;
-
 align-items:center;
 
-text-align:center;
-
 height:100%;
+
+text-align:center;
 
 }
 
 .weather-temp{
-font-size:30px;
+font-size:34px;
 font-weight:800;
 color:#fde047;
 }
 
 .weather-icon{
-
-font-size:30px;
-
-animation:
-weatherFloat 3s ease-in-out infinite;
-
-}
-
-@keyframes weatherFloat{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-6px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
+font-size:34px;
 }
 
 /* ================= MAP ================= */
 
 .map-card{
 
-position:relative;
+height:100%;
+
+padding:14px;
+
+display:flex;
+
+flex-direction:column;
 
 background:
 linear-gradient(
@@ -499,17 +480,25 @@ linear-gradient(
 #020617
 );
 
+border:
+1px solid rgba(59,130,246,.18);
+
+box-shadow:
+0 0 45px rgba(37,99,235,.18);
+
 }
 
 #map{
+
+flex:1;
 
 width:100%;
 
 height:100%;
 
-min-height:84vh;
+min-height:100%;
 
-border-radius:22px;
+border-radius:24px;
 
 overflow:hidden;
 
@@ -521,7 +510,7 @@ overflow:hidden;
 
 background:#0f172a;
 
-padding:10px 12px;
+padding:12px 14px;
 
 border-radius:14px;
 
@@ -531,12 +520,12 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-bottom:10px;
+margin-bottom:12px;
 
 }
 
 .summary-value{
-font-size:30px;
+font-size:34px;
 font-weight:800;
 }
 
@@ -546,7 +535,9 @@ font-weight:800;
 
 flex:1;
 
-min-height:520px;
+height:100%;
+
+min-height:540px;
 
 }
 
@@ -556,19 +547,19 @@ min-height:520px;
 
 flex:1;
 
+overflow:auto;
+
 background:#0f172a;
 
 padding:12px;
 
 border-radius:14px;
 
-overflow:auto;
-
 font-family:monospace;
 
 font-size:11px;
 
-line-height:1.8;
+line-height:1.9;
 
 white-space:pre-line;
 
@@ -606,19 +597,24 @@ cursor:pointer;
 /* ================= LIVE PIN ================= */
 
 .live-pin-wrapper{
+
 position:relative;
-width:42px;
-height:42px;
+
+width:48px;
+height:48px;
+
 transform:translate(-50%,-100%);
+
 z-index:9999;
+
 }
 
 .live-pin-pulse{
 
 position:absolute;
 
-width:42px;
-height:42px;
+width:48px;
+height:48px;
 
 border-radius:50%;
 
@@ -627,20 +623,17 @@ background:rgba(34,197,94,.28);
 animation:
 liveRadar 2s infinite;
 
-top:0;
-left:0;
-
 }
 
 .live-pin-core{
 
 position:absolute;
 
-width:30px;
-height:30px;
+width:34px;
+height:34px;
 
-left:6px;
-top:6px;
+left:7px;
+top:7px;
 
 border-radius:
 50% 50% 50% 0;
@@ -658,7 +651,7 @@ background:#22c55e;
 
 position:absolute;
 
-top:-62px;
+top:-68px;
 left:50%;
 
 transform:translateX(-50%);
@@ -670,15 +663,15 @@ linear-gradient(
 #15803d
 );
 
-padding:9px 12px;
+padding:10px 14px;
 
 border-radius:14px;
 
-min-width:170px;
+min-width:185px;
 
 text-align:center;
 
-font-size:10px;
+font-size:11px;
 
 font-weight:bold;
 
@@ -690,11 +683,9 @@ color:white;
 
 margin-top:4px;
 
-font-size:9px;
+font-size:10px;
 
 color:#dcfce7;
-
-font-weight:normal;
 
 }
 
@@ -720,8 +711,8 @@ opacity:0;
 
 .company-pin{
 position:relative;
-width:28px;
-height:28px;
+width:30px;
+height:30px;
 transform:translate(-50%,-100%);
 }
 
@@ -729,8 +720,8 @@ transform:translate(-50%,-100%);
 
 position:absolute;
 
-width:28px;
-height:28px;
+width:30px;
+height:30px;
 
 border-radius:
 50% 50% 50% 0;
@@ -746,14 +737,18 @@ border:2px solid white;
 
 .ultimate-popup{
 
-width:190px;
+width:220px;
+
+padding:10px;
 
 background:
-linear-gradient(180deg,#111827,#0f172a);
+linear-gradient(
+180deg,
+#111827,
+#0f172a
+);
 
 border-radius:14px;
-
-padding:8px;
 
 color:white;
 
@@ -763,13 +758,13 @@ color:white;
 
 background:#1e293b;
 
-padding:6px;
+padding:8px;
 
 border-radius:8px;
 
 margin-bottom:6px;
 
-font-size:10px;
+font-size:11px;
 
 }
 
@@ -783,18 +778,38 @@ overflow:auto;
 }
 
 .main{
+
 height:auto;
+
+display:flex;
+
+flex-direction:column;
+
 overflow:visible;
+
 }
 
 .top-grid,
 .lower-grid{
+
 grid-template-columns:1fr;
+
+height:auto;
+
 }
 
 #map{
+
 height:75vh;
+
 min-height:75vh;
+
+}
+
+.chart-wrapper{
+
+min-height:380px;
+
 }
 
 }
@@ -867,8 +882,8 @@ Loading...
 Employee Filter
 </div>
 
-<select id="employeeFilter">
-<option value="">All Employees</option>
+<select>
+<option>All Employees</option>
 </select>
 
 </div>
@@ -880,8 +895,7 @@ Employee Filter
 Date Filter
 </div>
 
-<input type="date"
-id="dateFilter">
+<input type="date">
 
 </div>
 
@@ -915,7 +929,7 @@ id="dateFilter">
 
 <div class="lower-grid">
 
-<div style="display:flex;flex-direction:column;gap:14px;overflow:hidden;">
+<div>
 
 <div class="card">
 
@@ -926,12 +940,12 @@ Attendance Summary
 
 <div class="summary-box">
 <div>TIME IN</div>
-<div class="summary-value" id="timeInCount">0</div>
+<div class="summary-value">24</div>
 </div>
 
 <div class="summary-box">
 <div>TIME OUT</div>
-<div class="summary-value" id="timeOutCount">0</div>
+<div class="summary-value">11</div>
 </div>
 
 </div>
@@ -943,29 +957,13 @@ Attendance Summary
 Coordinate List
 </div>
 
-<div style="
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-bottom:12px;
-">
-
-<select id="coordEmployeeFilter">
-<option value="">All Employees</option>
-</select>
-
-<input type="date"
-id="coordDateFilter">
-
+<div class="coord-box">
+15.486300, 120.967400
+15.486301, 120.967401
+15.486302, 120.967402
 </div>
 
-<div class="coord-box"
-id="history">
-Loading...
-</div>
-
-<button class="btn"
-onclick="copyCoords()">
+<button class="btn">
 COPY COORDINATES
 </button>
 
@@ -984,7 +982,7 @@ Realtime GPS Map
 
 </div>
 
-<div style="display:flex;flex-direction:column;gap:14px;overflow:hidden;">
+<div>
 
 <div class="card" style="flex:1;">
 
@@ -1008,7 +1006,7 @@ Activity Summary
 Warnings
 </div>
 
-<div id="warningBox">
+<div>
 No warnings
 </div>
 
@@ -1022,19 +1020,7 @@ No warnings
 
 <script>
 
-const firebaseConfig = {
-
-apiKey:"YOUR_API_KEY",
-
-authDomain:"YOUR_PROJECT.firebaseapp.com",
-
-projectId:"YOUR_PROJECT_ID"
-
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const db = firebase.firestore();
+/* PH TIME */
 
 function updatePHTime(){
 
@@ -1054,6 +1040,8 @@ setInterval(updatePHTime,1000);
 
 updatePHTime();
 
+/* MAP */
+
 const map =
 L.map('map').setView([15.4863,120.9674],10);
 
@@ -1061,84 +1049,11 @@ L.tileLayer(
 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 ).addTo(map);
 
-let markers =
-L.layerGroup().addTo(map);
+/* LIVE PIN */
 
-const ctx =
-document.getElementById('activityChart');
+const liveIcon = L.divIcon({
 
-let activityChart =
-new Chart(ctx,{
-
-type:'pie',
-
-data:{
-labels:[],
-datasets:[{
-data:[],
-backgroundColor:[
-'#22c55e',
-'#3b82f6',
-'#f59e0b',
-'#ef4444',
-'#8b5cf6',
-'#06b6d4'
-]
-}]
-},
-
-options:{
-responsive:true,
-maintainAspectRatio:false
-}
-
-});
-
-function loadData(){
-
-markers.clearLayers();
-
-let historyText="";
-let purposeCount={};
-
-let timeIn=0;
-let timeOut=0;
-
-db.collection("attendance")
-.get()
-.then(snapshot=>{
-
-snapshot.forEach(doc=>{
-
-let d = doc.data();
-
-if(d.type=="IN"){
-timeIn++;
-}
-
-if(d.type=="OUT"){
-timeOut++;
-}
-
-if(!purposeCount[d.purpose]){
-purposeCount[d.purpose]=0;
-}
-
-purposeCount[d.purpose]++;
-
-historyText +=
-`${Number(d.lat).toFixed(6)}, ${Number(d.lon).toFixed(6)}\n`;
-
-let isLive =
-d.type == "IN";
-
-const customIcon = L.divIcon({
-
-html:isLive
-
-?
-
-`
+html:`
 
 <div class="live-pin-wrapper">
 
@@ -1146,10 +1061,10 @@ html:isLive
 
 <div class="live-pin-label">
 
-👤 ${d.name}
+👤 JUAN DELA CRUZ
 
 <div class="live-purpose">
-📌 ${d.purpose}
+📌 FIELD VISIT
 </div>
 
 </div>
@@ -1158,34 +1073,20 @@ html:isLive
 
 </div>
 
-`
-
-:
-
-`
-
-<div class="company-pin">
-
-<div class="pin-core"
-style="
-background:#ef4444;
-">
-</div>
-
-</div>
-
 `,
 
 className:"",
-iconSize:[42,42],
-iconAnchor:[21,42]
+
+iconSize:[48,48],
+
+iconAnchor:[24,48]
 
 });
 
 L.marker(
-[d.lat,d.lon],
+[15.4863,120.9674],
 {
-icon:customIcon
+icon:liveIcon
 }
 )
 
@@ -1194,67 +1095,71 @@ icon:customIcon
 <div class="ultimate-popup">
 
 <div class="popup-line">
-👤 ${d.name}
+👤 JUAN DELA CRUZ
 </div>
 
 <div class="popup-line">
-🕒 ${d.date} ${d.time}
+🕒 2026-05-12 08:30 AM
 </div>
 
 <div class="popup-line">
-📌 ${d.purpose}
+📌 FIELD VISIT
 </div>
 
 <div class="popup-line">
-📍 ${Number(d.lat).toFixed(6)},
-${Number(d.lon).toFixed(6)}
+📍 15.486300, 120.967400
 </div>
 
 </div>
 
 `)
 
-.addTo(markers);
+.addTo(map);
 
-});
+/* PIE CHART */
 
-document.getElementById("history")
-.innerText =
-historyText;
+const ctx =
+document.getElementById('activityChart');
 
-document.getElementById("timeInCount")
-.innerText =
-timeIn;
+new Chart(ctx,{
 
-document.getElementById("timeOutCount")
-.innerText =
-timeOut;
+type:'pie',
 
-activityChart.data.labels =
-Object.keys(purposeCount);
+data:{
 
-activityChart.data.datasets[0].data =
-Object.values(purposeCount);
+labels:[
+'FIELD',
+'INSTALL',
+'MEETING',
+'ENCODING'
+],
 
-activityChart.update();
+datasets:[{
 
-});
+data:[12,7,5,3],
+
+backgroundColor:[
+
+'#22c55e',
+'#3b82f6',
+'#f59e0b',
+'#ef4444'
+
+]
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+maintainAspectRatio:false
 
 }
 
-function copyCoords(){
-
-navigator.clipboard.writeText(
-document.getElementById("history").innerText
-);
-
-alert("COPIED");
-
-}
-
-setInterval(loadData,5000);
-
-loadData();
+});
 
 </script>
 
